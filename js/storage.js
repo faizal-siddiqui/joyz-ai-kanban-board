@@ -1,3 +1,5 @@
+import CONSTANTS from "./constants";
+
 // =====================================================
 // STORAGE MODULE - Handles localStorage operations
 // =====================================================
@@ -6,7 +8,7 @@ const StorageManager = {
    * Saves tasks to localStorage
    * @param {Array} tasks - Array of task objects
    */
-  STORAGE_KEY: "kanbanTasks",
+  STORAGE_KEY: CONSTANTS.STORAGE_KEY,
 
   saveTasks(tasks) {
     try {
