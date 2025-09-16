@@ -41,12 +41,13 @@ const EventManager = {
 
     // Create new task
     const newTask = TaskManager.createTask(title, description);
+    const newTaskStatus = newTask.status;
 
     // Clear form
     e.target.reset();
 
     // Update display
-    RenderManager.updateBoard();
+    RenderManager.renderColumn(newTaskStatus);
 
     // Focus back to title input for better UX
     document.getElementById("taskTitle").focus();
