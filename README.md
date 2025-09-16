@@ -123,7 +123,7 @@ Main entry point:
 1. **Clone the repository:**
 
 ```bash
-git clone https://github.com/your-username/dynamic-kanban-board.git
+git clone https://github.com/faizal-siddiqui/joyz-ai-kanban-board.git
 cd dynamic-kanban-board
 
 ```
