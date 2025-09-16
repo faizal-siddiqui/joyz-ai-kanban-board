@@ -1,3 +1,4 @@
+import CONSTANTS from "./constants.js";
 import DragDropManager from "./dragDrop.js";
 import EventManager from "./eventManager.js";
 import RenderManager from "./renderManager.js";
@@ -33,22 +34,7 @@ const KanbanApp = {
    * Creates sample tasks for demonstration
    */
   createSampleTasks() {
-    const sampleTasks = [
-      {
-        title: "Setup Development Environment",
-        description:
-          "Install Node.js, configure IDE, and set up project structure",
-      },
-      {
-        title: "Design Database Schema",
-        description:
-          "Create ERD and define table relationships for the application",
-      },
-      {
-        title: "Implement User Authentication",
-        description: "Add login/logout functionality with JWT tokens",
-      },
-    ];
+    const sampleTasks = CONSTANTS.SAMPLE_TASKS;
 
     sampleTasks.forEach((task) => {
       TaskManager.createTask(task.title, task.description);
@@ -57,15 +43,16 @@ const KanbanApp = {
     // Move one task to in progress for demonstration
     const allTasks = TaskManager.getAllTasks();
     if (allTasks.length > 1) {
-      TaskManager.updateTaskStatus(allTasks[1].id, "inprogress");
+      TaskManager.updateTaskStatus(
+        allTasks[1].id,
+        CONSTANTS.TASK_STATUSES.INPROGRESS
+      );
     }
 
     RenderManager.updateBoard();
     console.log("Sample tasks created");
   },
 };
-
-export default KanbanApp;
 
 console.log("✓ App module loaded");
 

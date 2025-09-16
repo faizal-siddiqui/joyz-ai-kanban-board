@@ -1,3 +1,4 @@
+import CONSTANTS from "./constants.js";
 import StorageManager from "./storage.js";
 import Utils from "./utils.js";
 
@@ -26,7 +27,7 @@ const TaskManager = {
       id: Utils.generateId(),
       title: title.trim(),
       description: description.trim(),
-      status: "todo",
+      status: CONSTANTS.TASK_STATUSES.TODO,
       createdAt: new Date(),
       updatedAt: new Date(),
     };

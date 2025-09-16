@@ -1,3 +1,4 @@
+import CONSTANTS from "./constants.js";
 import TaskManager from "./taskManager.js";
 import Utils from "./utils.js";
 
@@ -57,9 +58,9 @@ const RenderManager = {
    */
   renderColumn(status) {
     const containerMap = {
-      todo: "todoTasks",
-      inprogress: "inprogressTasks",
-      done: "doneTasks",
+      [CONSTANTS.TASK_STATUSES.TODO]: "todoTasks",
+      [CONSTANTS.TASK_STATUSES.INPROGRESS]: "inprogressTasks",
+      [CONSTANTS.TASK_STATUSES.DONE]: "doneTasks",
     };
 
     const container = document.getElementById(containerMap[status]);
@@ -79,7 +80,10 @@ const RenderManager = {
         {
           class: "empty-column",
         },
-        `No tasks in ${status.replace("inprogress", "in progress")}`
+        `No tasks in ${status.replace(
+          CONSTANTS.TASK_STATUSES.INPROGRESS,
+          "in progress"
+        )}`
       );
       container.appendChild(emptyState);
     } else {
@@ -94,7 +98,7 @@ const RenderManager = {
    * Renders all columns
    */
   renderAllColumns() {
-    ["todo", "inprogress", "done"].forEach((status) => {
+    Object.values(CONSTANTS.TASK_STATUSES).forEach((status) => {
       this.renderColumn(status);
     });
   },
